@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Gen Z Programming 101</title>
+<link rel="icon" type="image/x-icon" href="favicon.png">
+ </head>
+
+<body>
+    <div class="container">
+        <h2>Convert boring Javascript into Gen Z slang script</h2>
+        <label for="JS Code">Input Javascript Code here:</label>
+        <textarea id="JsInput" name="JsCode" placeholder="Write JS Code here, yawn...." style="height:200px"></textarea>
+
+
+        <hr />
+        <button type="button" onclick="letsGo()">Translate</button>
+        <button type="button" onclick="clear()">Clear</button>
+        <button type="button" onclick="example()">Example</button>
+        <br />
+        <hr />
+
+        <label for="JS Code">Output for Gen Z Code here 🔥:</label>
+        <textarea id="JsOutput" name="JsOutput" disabled style="height:200px"></textarea>
+
+        <!--<h2>Gen Z RuleBook:</h2>-->
+
+    </div>
+
+    <script>
+        function letsGo() {
+            var input = document.getElementById("JsInput").value;
+            if (input == "") {
+                return alert("Text is empty");
+            }
+            else {
+                // Logic to change JS script here
+                // Define the mapping of keywords to Gen Z slang
+                const slangMapping = {
+                    'true': 'nocap',
+                    'false': 'cap',
+                    'function': 'lit',
+                    'var': 'flex',
+                    'let': 'vibe',
+                    'const': 'forever',
+                    'return': 'yap',
+                    'if': 'vibeCheck',
+                    'else': 'bigYikes',
+                    'for': 'loopGang',
+                    'while': 'stayLooping',
+                    'switch': 'turnUp',
+                    'case': 'noCapCase',
+                    'default': 'catchAll',
+                    'class': 'drip',
+                    'object': 'squad',
+                    'array': 'squadGoals',
+                    'argument': 'facts',
+                    'exception': 'plotTwist',
+                    'break': 'haveAKitKat',
+                    'continue': 'justKeepSwimming',
+                    'throw': 'yeet',
+                    'import': 'steal',
+                    'export': 'give',
+                    'promise': 'bet',
+
+                    // Add more replacements as needed
+                };
+
+                // Create a regular expression for matching keywords
+                const regex = new RegExp('\\b(' + Object.keys(slangMapping).join('|') + ')\\b', 'g');
+
+                // Replace keywords with Gen Z slang
+                output = input.replace(regex, match => slangMapping[match]);
+                console.log(output);
+
+                // Enable Text Area to input value
+                document.getElementById("JsOutput").value = output;
+            }
+
+        }
+
+        function clear() {
+            document.getElementById("JsInput").value = "";
+            document.getElementById("JsOutput").value = "";
+
+        }
+
+        function example() {
+            document.getElementById("JsInput").value = "function vibecheck() {var isActive = true;if (isActive) {return true;} else {return false;}} ";
+            letsGo();
+        }
+
+
+    </script>
+
+</body>
+</html>
+
+<style>
+    /* Style inputs with type="text", select elements and textareas */
+    input[type=text], select, textarea {
+        width: 100%; /* Full width */
+        padding: 12px; /* Some padding */
+        border: 1px solid #ccc; /* Gray border */
+        border-radius: 4px; /* Rounded borders */
+        box-sizing: border-box; /* Make sure that padding and width stays in place */
+        margin-top: 6px; /* Add a top margin */
+        margin-bottom: 16px; /* Bottom margin */
+        resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    }
+
+    /* Style the submit button with a specific background color etc */
+    button {
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        /* When moving the mouse over the submit button, add a darker green color */
+        button:hover {
+            background-color: #45a049;
+        }
+
+    /* Add a background color and some padding around the form */
+    .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
