@@ -14,7 +14,7 @@
 
         <hr />
         <button type="button" onclick="letsGo()">Translate</button>
-        <button type="button" onclick="clear()">Clear</button>
+        <button type="button" onclick="clearText()">Clear</button>
         <button type="button" onclick="example()">Example</button>
         <br />
         <hr />
@@ -88,7 +88,7 @@
             return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         }
 
-        function clear() {
+        function clearText() {
             document.getElementById("JsInput").value = "";
             document.getElementById("JsOutput").value = "";
 
