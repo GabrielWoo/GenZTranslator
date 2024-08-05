@@ -30,7 +30,7 @@
         function letsGo() {
             var input = document.getElementById("JsInput").value;
             if (input == "") {
-                return alert("Text is empty");
+                return alert("Yo Dawg, there aint no text here 👀");
             }
             else {
                 // Logic to change JS script here
@@ -43,6 +43,7 @@
                     'let': 'vibe',
                     'const': 'forever',
                     'return': 'yap',
+                    'console': 'yapping',
                     'if': 'vibeCheck',
                     'else': 'bigYikes',
                     'for': 'loopGang',
@@ -61,21 +62,30 @@
                     'import': 'steal',
                     'export': 'give',
                     'promise': 'bet',
+                    ';': ' quickly',
+                    '{': 'fr ',
+                    '}': ' tho',
+                    '=': ' be ',
 
                     // Add more replacements as needed
                 };
 
                 // Create a regular expression for matching keywords
-                const regex = new RegExp('\\b(' + Object.keys(slangMapping).join('|') + ')\\b', 'g');
+                const regexPattern = '(' + Object.keys(slangMapping).map(escapeRegExp).join('|') + ')';
+                const regex = new RegExp(regexPattern, 'g');
 
                 // Replace keywords with Gen Z slang
                 output = input.replace(regex, match => slangMapping[match]);
-                console.log(output);
 
                 // Enable Text Area to input value
                 document.getElementById("JsOutput").value = output;
             }
 
+        }
+
+        // Helper function to escape special characters in a string for use in a regular expression
+        function escapeRegExp(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         }
 
         function clear() {
@@ -85,7 +95,7 @@
         }
 
         function example() {
-            document.getElementById("JsInput").value = "function vibecheck() {var isActive = true;if (isActive) {return true;} else {return false;}} ";
+            document.getElementById("JsInput").value = "function vibecheck() { var isActive = true; if (isActive) { return true ; } else { return false ; } } ";
             letsGo();
         }
 
